@@ -6,8 +6,8 @@ def save(publisher):
   sql = "INSERT INTO publishers(name, address, phone_number) VALUES ( %s, %s, %s) RETURNING id"
   values = [publisher.name, publisher.address, publisher.phone_number]
   results = run_sql(sql, values)
-  publisher.id = results[0]['id']
-  return publisher
+  id = results[0]['id']
+  publisher.id = id
 
 def select_all():
   publishers = []
@@ -28,9 +28,10 @@ def select(id):
   return publisher
 
 def update(publisher):
-  sql = "UPDATE publishers SET (name, address, phone_number) = (%s, %s, %s ) WHERE id =%s"
+  sql = "UPDATE publishers SET (name, address, phone_number) = (%s, %s, %s ) WHERE id = %s"
   values = [publisher.name, publisher.address, publisher.phone_number, publisher.id]
   run_sql(sql, values)
+
 
 def delete(id):
   sql = "DELETE FROM publishers WHERE id = %s"
@@ -49,6 +50,3 @@ def books(publisher): # need to add for list of books by publisher
 def delete_all():
   sql = "DELETE FROM publishers"
   run_sql(sql)
-
-def books():
-  pass

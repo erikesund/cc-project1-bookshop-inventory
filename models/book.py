@@ -15,7 +15,6 @@ class Book:
     markup = (self.sell_price) - (self.buy_price)
     return markup
 
-
   def stock_status(self):
     if self.quantity == 0:
       return "out_of_stock"

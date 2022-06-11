@@ -10,8 +10,8 @@ def save(book):
         RETURNING id"""
   values = [book.title, book.author, book.genre, book.quantity, book.buy_price, book.sell_price, book.publisher.id, book.isbn, book.book_format]
   results = run_sql(sql, values)
-  book.id = results[0]["id"]
-  return book
+  id = results[0]["id"]
+  book.id = id
 
 def select_all():
   books = []

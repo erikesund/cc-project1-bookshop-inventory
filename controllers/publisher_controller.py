@@ -40,9 +40,10 @@ def update_publisher(id):
   name = request.form["name"]
   address = request.form["address"]
   phone_number = request.form["phone_number"]
-  publisher = Publisher(name, address, phone_number)
+  publisher = Publisher(name, address, phone_number, id)
   publisher_repository.update(publisher)
   return redirect("/publishers")
+
 
 @publishers_blueprint.route("/publishers/<id>/delete", methods = ["POST"]) #delete
 def delete_publisher(id):
