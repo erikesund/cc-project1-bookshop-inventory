@@ -11,11 +11,18 @@ class Book:
     self.book_format = book_format
     self.id = id
 
-  def calculate_markup():
-    pass
+  def calculate_markup(self):
+    markup = (self.sell_price) - (self.buy_price)
+    return markup
 
-  def change_quantity():
-    pass
 
-  def stock_status():
-    pass
+  def stock_status(self):
+    if self.quantity == 0:
+      return "out_of_stock"
+    if self.quantity >= 5:
+      return "stock_high"
+    elif self.quantity < 5:
+      return "stock_low"
+  
+  # def change_quantity(): should this be handled by the db?
+  #   pass
