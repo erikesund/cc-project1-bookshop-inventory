@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.publisher import Publisher
+from models.book import Book
 
 def save(publisher):
   sql = "INSERT INTO publishers(name, address, phone_number) VALUES ( %s, %s, %s) RETURNING id"
@@ -30,6 +31,15 @@ def delete(id):
   sql = "DELETE FROM publishers WHERE id = %s"
   values = [id]
   run_sql(sql, values)
+
+def books(publisher): # need to add for list of books by publisher
+  sql = "SELECT books.* FROM books WHERE publisher_id = %s"
+  values = [publisher.id]
+  results = run_sql(sql, values)
+  for row in results:
+    book = Book(row["title"], row["author"], row["genre"], row["quantity"], row["buy price"], row["sell_price"], publisher, row["isbn"], row["book_format"])
+    books.append(book)
+  return books
 
 def delete_all():
   sql = "DELETE FROM publishers"

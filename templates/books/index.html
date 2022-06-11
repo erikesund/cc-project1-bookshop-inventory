@@ -2,6 +2,13 @@
 
 {% block content %}
 
-Placeholder for list of all books.
+<p> Placeholder for list of all books.</p>
+
+{% for book in books %}
+<p>
+  {{book.title}} - {{book.author}}
+</p>
+
+{% endfor %}
   
 {% endblock content %}
