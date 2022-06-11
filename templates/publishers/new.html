@@ -2,4 +2,24 @@
 
 {% block content %}
   PLACEHOLDER FOR CREATE NEW PUBLISHER
+<form action="/publishers" method ="POST">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+  <div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address">
+  </div>
+  <div>
+    <label for="phone_number">Telephone Number:</label>
+    <input type="text" id="phone_number" name="phone_number">
+  </div>
+  <div>
+    <input type="Submit">
+  </div>
+
+
+</form>
+
 {% endblock content %}

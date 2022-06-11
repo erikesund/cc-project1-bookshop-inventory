@@ -4,9 +4,13 @@
 
 <p> Placeholder for list of all books.</p>
 
+<p><a href="/books/new">Add New Book</a></p>
+
 {% for book in books %}
 <p>
-  {{book.title}} - {{book.author}}
+  <a href="/books/{{book.id}}">{{book.title}}</a> - {{book.author}} <br> Genre: {{book.genre}} <br> 
+  Quantity: {{book.quantity}} <br>Buy Price: {{book.buy_price}} <br>Sell Price: {{book.sell_price}} <br>
+  Publisher: {{book.publisher.name}} <br> ISBN: {{book.isbn}} <br> Format: {{book.book_format}}
 </p>
 
 {% endfor %}

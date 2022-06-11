@@ -25,11 +25,11 @@ def select_all():
 
 def select(id):
   book = None
-  sql = "SELECT * FROM book WHERE id = %s"
+  sql = "SELECT * FROM books WHERE id = %s"
   values = [id]
   result = run_sql(sql, values)[0]
-  if result is not None:
-    book = Book(result["title"], result["author"], result["genre"], result["quantity"], result["buy_price"], result["sell_price"], publisher, result["isbn"], result["book_format"])
+  publisher = publisher_repository.select(result["publisher_id"])
+  book = Book(result["title"], result["author"], result["genre"], result["quantity"], result["buy_price"], result["sell_price"], publisher, result["isbn"], result["book_format"], result["id"])
   return book
 
 def delete_all():

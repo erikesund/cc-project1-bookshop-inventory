@@ -17,7 +17,10 @@ publisher_repository.save(publisher2)
 book1 = Book("The Lord of the Rings", "JRR Tolkien", "fantasy", 9, 8.50, 16.99, publisher1, "9780261102385", "paperback")
 book_repository.save(book1)
 
-book2 = Book("The Hobbit", "JRR Tolkien", "fantasy", 9, 4.00, 8.99, publisher1, "9780007458424", "paperback")
+book2 = Book("The Hobbit", "JRR Tolkien", "fantasy", 3, 4.00, 8.99, publisher1, "9780007458424", "paperback")
 book_repository.save(book2)
+
+book3 = Book("The Silmarillion", "JRR Tolkien", "fantasy", 0, 8.50, 16.99, publisher1, "9780008433956", "hardback")
+book_repository.save(book3)
 
 pdb.set_trace()
