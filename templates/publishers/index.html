@@ -2,6 +2,14 @@
 
 {% block content %}
 
-Placeholder for list of all publishers.
+<p> Placeholder for list of all publishers. </p>
+
+{% for publisher in publishers %}
+<p>
+{{publisher.name}} <br>
+{{publisher.address}} <br>
+{{publisher.phone_number}} <br>
+</p>
+{% endfor %}
   
 {% endblock content %}
