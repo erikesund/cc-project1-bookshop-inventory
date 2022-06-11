@@ -19,5 +19,5 @@ CREATE TABLE books(
   publisher_id INT REFERENCES publishers (id),
   isbn VARCHAR(255),
   book_format VARCHAR(255)
-
+  
 );

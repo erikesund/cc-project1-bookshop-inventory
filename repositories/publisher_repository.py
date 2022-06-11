@@ -34,3 +34,6 @@ def delete(id):
 def delete_all():
   sql = "DELETE FROM publishers"
   run_sql(sql)
+
+def books():
+  pass
