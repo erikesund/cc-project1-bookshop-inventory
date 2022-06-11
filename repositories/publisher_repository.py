@@ -27,6 +27,11 @@ def select(id):
     publisher = Publisher(result["name"], result["address"], result["phone_number"], result["id"])
   return publisher
 
+def update(publisher):
+  sql = "UPDATE publishers SET (name, address, phone_number) = (%s, %s, %s ) WHERE id =%s"
+  values = [publisher.name, publisher.address, publisher.phone_number, publisher.id]
+  run_sql(sql, values)
+
 def delete(id):
   sql = "DELETE FROM publishers WHERE id = %s"
   values = [id]

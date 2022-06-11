@@ -4,7 +4,10 @@ import repositories.publisher_repository as publisher_repository
 
 
 def save(book):
-  sql = "INSERT INTO books (title, author, genre, quantity, buy_price, sell_price, publisher_id, isbn, book_format) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"
+  sql = """INSERT INTO books 
+        (title, author, genre, quantity, buy_price, sell_price, publisher_id, isbn, book_format) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) 
+        RETURNING id"""
   values = [book.title, book.author, book.genre, book.quantity, book.buy_price, book.sell_price, book.publisher.id, book.isbn, book.book_format]
   results = run_sql(sql, values)
   book.id = results[0]["id"]
@@ -20,6 +23,27 @@ def select_all():
     books.append(book)
   return books
 
+def select(id):
+  book = None
+  sql = "SELECT * FROM book WHERE id = %s"
+  values = [id]
+  result = run_sql(sql, values)[0]
+  if result is not None:
+    book = Book(result["title"], result["author"], result["genre"], result["quantity"], result["buy_price"], result["sell_price"], publisher, result["isbn"], result["book_format"])
+  return book
+
 def delete_all():
   sql = "DELETE FROM books"
   run_sql(sql)
+
+def delete(id):
+  sql = "DELETE FROM books WHERE id = %s"
+  values = [id]
+  run_sql(sql, values)
+
+def update(book):
+  sql = """UPDATE books 
+        SET (title, author, genre, quantity, buy_price, sell_price, publisher_id, isbn, book_format) 
+        = (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"""
+  values = [book.title, book.author, book.genre, book.quantity, book.buy_price, book.sell_price, book.publisher.id, book.isbn, book.book_format, book.id]
+  run_sql(sql, values)
