@@ -15,8 +15,8 @@ def books():
 
 @books_blueprint.route("/books/<id>") #show - this is not working
 def show_book(id):
-  publisher = publisher_repository.select(id)
-  book = book_repository.select(id)
+  book = book_repository.select(id) 
+  publisher = publisher_repository.select(book.publisher.id)
   return render_template("/books/show.html", book = book, publisher = publisher)
 
 #new

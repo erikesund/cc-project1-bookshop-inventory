@@ -19,11 +19,13 @@ def select_all():
   results = run_sql(sql)
   for row in results:
     publisher = publisher_repository.select(row["publisher_id"])
-    book = Book(row["title"], row["author"], row["genre"], row["quantity"], row["buy_price"], row["sell_price"], publisher, row["isbn"], row["book_format"])
+    book = Book(row["title"], row["author"], row["genre"], row["quantity"], row["buy_price"], row["sell_price"], publisher, row["isbn"], row["book_format"], row["id"])
     books.append(book)
   return books
 
 def select(id):
+  print("id  = ")
+  print(id)
   book = None
   sql = "SELECT * FROM books WHERE id = %s"
   values = [id]
