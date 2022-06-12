@@ -8,6 +8,7 @@ def save(publisher):
   results = run_sql(sql, values)
   id = results[0]['id']
   publisher.id = id
+  return publisher
 
 def select_all():
   publishers = []
@@ -19,10 +20,13 @@ def select_all():
   return publishers
 
 def select(id):
+  publisher = None
   sql = "SELECT * FROM publishers WHERE id = %s"
   values = [id]
-  result = run_sql(sql, values)[0]
-  publisher = Publisher(result["name"], result["address"], result["phone_number"], result["id"])
+  result = run_sql(sql, values)[0]  
+  
+  if result is not None:
+    publisher = Publisher(result["name"], result["address"], result["phone_number"], result["id"])
   return publisher
 
 def update(publisher):

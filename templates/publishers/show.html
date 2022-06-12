@@ -3,6 +3,8 @@
 {% block content %}
   <p>Placeholder Publisher Details</p>
   <p>
-    {{publisher.name}} <a href="/publishers/{{ publisher.id }}/edit">Edit</a>
+    {{publisher.name}} <a href="/publishers/{{publisher.id}}/edit">Edit</a><br>
+    {{publisher.address}} <br>
+    {{publisher.phone_number}}
   </p>
 {% endblock content %}
