@@ -8,7 +8,7 @@
 
 {% for book in books %}
 <p>
-  <a href="/books/{{book.id}}">{{book.title}}</a> - {{book.author}} <br> Genre: {{book.genre}} <br> 
+  <a href="/books/{{book.id}}">{{book.title}}</a> - {{book.author}} <a href="/publishers/{{ book.id }}/edit">Edit</a><br> Genre: {{book.genre}} <br> 
   Quantity: {{book.quantity}} <br>Buy Price: {{book.buy_price}} <br>Sell Price: {{book.sell_price}} <br>
   Publisher: {{book.publisher.name}} <br> ISBN: {{book.isbn}} <br> Format: {{book.book_format}}
 </p>
