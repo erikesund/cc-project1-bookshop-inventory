@@ -12,8 +12,10 @@ class Book:
     self.id = id
 
   def calculate_markup(self):
-    markup = (self.sell_price) - (self.buy_price)
-    return markup
+    markup_float = (self.sell_price) - (self.buy_price)
+    markup_float = round(markup_float, 2)
+    markup_string = format(markup_float, '.2f')
+    return markup_string
 
   def stock_status(self):
     if self.quantity == 0:

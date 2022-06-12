@@ -15,8 +15,18 @@
 </p>
 
 <p>
+  {{ book.calculate_markup() }}
+</p>
 
-  
+<p>
+  {% if book.stock_status() == 'out_of_stock' %}
+  Out of Stock!
+  {% elif book.stock_status() == 'stock_high' %}
+  Stock Fine
+  {% else %}
+  Stock Low!
+  {% endif %}
+
 </p>
 
 {% endfor %}
