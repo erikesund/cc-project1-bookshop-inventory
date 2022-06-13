@@ -49,15 +49,15 @@
 
     <div>      
       {% if book.book_format == 'paperback' %}
-      <input type="radio" id="paperback" name="book_format" value="{{book.paperback}}" checked />
+      <input type="radio" id="paperback" name="book_format" value="paperback" checked />
       <label for="paperback">Paperback</label><br>  
-      <input type="radio" id="hardback" name="book_format" value="{{book.hardback}}">
+      <input type="radio" id="hardback" name="book_format" value="hardback">
       <label for="hardback">Hardback</label><br>    
         
       {% else %}        
-      <input type="radio" id="paperback" name="book_format" value="{{book.paperback}}" />
+      <input type="radio" id="paperback" name="book_format" value="paperback" />
       <label for="paperback">Paperback</label><br>  
-      <input type="radio" id="hardback" name="book_format" value="{{book.hardback}}" checked>
+      <input type="radio" id="hardback" name="book_format" value="hardback" checked>
       <label for="hardback">Hardback</label><br>
       
       {% endif %}

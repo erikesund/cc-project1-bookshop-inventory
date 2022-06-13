@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookshop Inventory System</title>
 </head>
 <body>
-    <header>
-        <h2>BookWorld Glasgow</h1>
+    <header> 
+        <section id ="header-logo">
+            <a href="/">
+                <img src="static/images/header_book.jpg" alt="Header Book Icon"
+                height="90" width="90">
+            </a>
+
+        </section>
+        
+        <section id="header-address">
+        <h2>BookWorld Glasgow</h2>
             <p>
                 121 St. Mungo Avenue,<br>
                 Glasgow,<br> 
                 G1 4FD.
             </p>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/books">Books</a></li>
-                <li><a href="/publishers">Publishers</a></li>
-            </ul>
-        </nav>
+        </section>
     </header>
 
-    <section>
-        <div class="sidebar">sidebar</div>
-    </section>
+    <div class="main-container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Orders</a></li>
+                    <li><a href="/books">Books</a></li>
+                    <li><a href="/publishers">Publishers</a></li>
+                </ul>
+            </nav>
+        </aside>
+    
+        <main class="content">
+            {% block content %}
+                
+            {% endblock content %}
+        </main>
+    </div>
 
-    <section>
-        {% block content %}
-            
-        {% endblock content %}
-    </section>
+
 </body>
 </html>
