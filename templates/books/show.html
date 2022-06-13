@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<p>{{book.title}} - {{book.author}}</p>
+<article class="book-container">
+Title: {{book.title}} <br>
+Author: {{book.author}} <br>
+Genre: {{book.genre}} <br>
+Quantity: {{book.quantity}} <br>
+Buy Price: {{book.buy_price}} <br> 
+Sell Price: {{book.sell_price}} <br>
+Markup: {{book.calculate_markup()}} <br>
+Publisher: {{book.publisher.name}} <br>
+ISBN-13: {{book.isbn}} <br>
+Format: {{book.book_format}} <br>
+<a href="/books/{{book.id}}/edit">Edit</a>
+
+</article>
 {% endblock content %}

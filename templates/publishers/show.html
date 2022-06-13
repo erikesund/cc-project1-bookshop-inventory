@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <p>Placeholder Publisher Details</p>
-  <p>
-    {{publisher.name}} <a href="/publishers/{{publisher.id}}/edit">Edit</a><br>
+  <div class="publisher-container">
+    <p>{{publisher.name}}<br>
     {{publisher.address}} <br>
-    {{publisher.phone_number}}
-  </p>
+    {{publisher.phone_number}} <br>
+    <a href="/publishers/{{publisher.id}}/edit">Edit</a>
+  </div>
+
 {% endblock content %}

@@ -2,10 +2,11 @@
 
 {% block content %}
 
-<p> Placeholder for list of all books.</p>
-
 <p><a href="/books/new">Add New Book</a></p>
 
+
+<article>
+  <!-- <div id="book-container">
 {% for book in books %}
 <p>
   <a href="/books/{{book.id}}">{{book.title}}</a> - {{book.author}} <a href="/books/{{book.id}}/edit">Edit</a><br> Genre: {{book.genre}} <br> 
@@ -21,9 +22,41 @@
   {% else %}
   Stock Low!
   {% endif %}
-
 </p>
 
 {% endfor %}
-  
+</div> -->
+<div id="books-table">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Quantity</th>
+      <th>Buy Price</th>
+      <th>Sell Price</th>
+      <th>Markup</th>
+      <th>Publisher</th>
+      <th>ISBN</th>
+      <th>Format</th>
+      <th></th>
+    </tr>
+    {% for book in books %}
+    <tr>
+      <td><a href="/books/{{book.id}}">{{book.title}}</a></td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td>{{book.quantity}}</td>
+      <td>{{book.buy_price}}</td>
+      <td>{{book.sell_price}}</td>
+      <td>{{book.calculate_markup()}}</td>
+      <td>{{book.publisher.name}}</td>
+      <td>{{book.isbn}}</td>
+      <td>{{book.book_format}}</td>
+      <td><a href="/books/{{book.id}}/edit">Edit</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</article>
 {% endblock content %}

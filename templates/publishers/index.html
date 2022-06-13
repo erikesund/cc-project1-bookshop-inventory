@@ -2,20 +2,37 @@
 
 {% block content %}
 
-<div class="publisher-container">
-<p>
+<article>
+<div>
   <a href="/publishers/new">Add New Publisher</a>
-</p>
 </div>
 
-{% for publisher in publishers %}
-<p>
-<a href="/publishers/{{publisher.id}}">{{publisher.name}}</a> <br>
-{{publisher.address}} <br>
-{{publisher.phone_number}} <br>
-{{publisher.id}}
+<div>
+  {% for publisher in publishers %}
+  <p class="publisher-container">
+  <a href="/publishers/{{publisher.id}}">{{publisher.name}}</a> <br>
+  {{publisher.address}} <br>
+  {{publisher.phone_number}}
 </p>
-
 {% endfor %}
+</div>
+
+<div id="publisher-table">
+  <table>
+    <tr>
+      <th>Publisher</th>
+      <th>Address</th>
+      <th>Phone Number</th>
+    </tr>
+    {% for publisher in publishers %}
+    <tr>
+      <th>{{publisher.name}}</th>
+      <th>{{publisher.address}}</th>
+      <th>{{publisher.phone_number}}</th>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</article>
 
 {% endblock content %}
