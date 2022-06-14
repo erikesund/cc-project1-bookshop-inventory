@@ -1,3 +1,5 @@
 class OrderedBooks:
   def __init__(self, order, book, id = None):
-    pass
+    self.order = order
+    self.book = book
+    self.id = id
