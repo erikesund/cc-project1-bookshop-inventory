@@ -13,7 +13,7 @@ def books():
   books = book_repository.select_all()
   return render_template("books/index.html", books = books)
 
-@books_blueprint.route("/books/<id>") #show - this is not working
+@books_blueprint.route("/books/<id>") #show
 def show_book(id):
   book = book_repository.select(id) 
   publisher = publisher_repository.select(book.publisher.id)

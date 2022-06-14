@@ -2,6 +2,7 @@ from flask import Flask, render_template, Blueprint, request, redirect
 
 from models.publisher import Publisher
 import repositories.publisher_repository as publisher_repository
+import repositories.book_repository as book_repository
 
 publishers_blueprint = Blueprint("publishers", __name__)
 
@@ -12,8 +13,9 @@ def publishers():
 
 @publishers_blueprint.route("/publishers/<id>") #show
 def show(id):
+  books = publisher_repository.books_by_publisher(id)
   publisher = publisher_repository.select(id)
-  return render_template("publishers/show.html", publisher = publisher)
+  return render_template("publishers/show.html", publisher = publisher, books = books)
 
 @publishers_blueprint.route("/publishers/new", methods=["GET"]) #new
 def new_publisher():

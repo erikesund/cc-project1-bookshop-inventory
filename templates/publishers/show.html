@@ -8,4 +8,44 @@
     <a href="/publishers/{{publisher.id}}/edit">Edit</a>
   </div>
 
+  <div class="books-table">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Quantity</th>
+        <th></th>
+        <th>Buy Price</th>
+        <th>Sell Price</th>
+        <th>Markup</th> 
+        <th>Publisher</th>
+        <th>ISBN</th>
+        <th>Format</th>
+        <th></th>
+      </tr>
+      {% for book in books %}
+      <tr>
+        <td><a href="/books/{{book.id}}">{{book.title}}</a></td>
+        <td>{{book.author}}</td>
+        <td>{{book.genre}}</td>
+        <td>{{book.quantity}}</td>
+        <td> {% if book.stock_status() == 'out_of_stock' %}
+          <img src="/static/images/icon_red.jpeg" alt="Red Exclaimation Mark" height="35px" width="35px">
+          {% elif book.stock_status() == 'stock_high' %}
+          <img src="/static/images/icon_grey.jpeg" alt="Grey Exclaimation Mark" height="35px" width="35px">
+          {% else %}
+          <img src="/static/images/icon_yellow.png" alt="Yellow Exclaimation Mark" height="35px" width="35px">
+          {% endif %}</td>
+        <td>{{book.buy_price}}</td>
+        <td>{{book.sell_price}}</td>
+        <td>{{book.calculate_markup()}}</td>
+        <td>{{book.publisher.name}}</td>
+        <td>{{book.isbn}}</td>
+        <td>{{book.book_format}}</td>
+        <td><a href="/books/{{book.id}}/edit">Edit</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
 {% endblock content %}

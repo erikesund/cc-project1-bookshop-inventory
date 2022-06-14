@@ -102,6 +102,7 @@ th, td {
 
 td {
   font-weight: normal;
+  margin: auto;
 }
 
 tr:nth-child(even) {

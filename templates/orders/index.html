@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+<div>
+  {% for order in orders %}
+  <p class="publisher-container">
+  <a href="/orders/{{order.id}}">{{order.id}}</a> <br>
+  {{order.status}} <br>
+  {{order.customer}}
+</p>
+{% endfor %}
+</div>
+
+{% endblock content %}

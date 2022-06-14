@@ -40,12 +40,14 @@ def delete(id):
   values = [id]
   run_sql(sql, values)
 
-def books(publisher): # need to add for list of books by publisher
+def books_by_publisher(id): # need to add for list of books by publisher
+  books = []
   sql = "SELECT books.* FROM books WHERE publisher_id = %s"
-  values = [publisher.id]
+  values = [id]
+  publisher = id
   results = run_sql(sql, values)
   for row in results:
-    book = Book(row["title"], row["author"], row["genre"], row["quantity"], row["buy price"], row["sell_price"], publisher, row["isbn"], row["book_format"])
+    book = Book(row["title"], row["author"], row["genre"], row["quantity"], row["buy_price"], row["sell_price"], publisher, row["isbn"], row["book_format"], row["id"])
     books.append(book)
   return books
 
