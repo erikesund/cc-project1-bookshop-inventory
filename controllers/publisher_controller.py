@@ -33,7 +33,7 @@ def create_publisher():
 @publishers_blueprint.route("/publishers/<id>/edit") #edit
 def edit_publisher(id):
   publisher = publisher_repository.select(id)
-  return render_template('publishers/edit.html', publisher = publisher)
+  return render_template('/publishers/edit.html', publisher = publisher)
 
 
 

@@ -1,4 +1,4 @@
-class OrderedBooks:
+class OrderedBook:
   def __init__(self, order, book, id = None):
     self.order = order
     self.book = book

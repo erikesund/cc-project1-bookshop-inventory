@@ -1,15 +1,18 @@
 import pdb
 from models.book import Book
+from models.ordered_book import OrderedBook
 from models.publisher import Publisher
 from models.order import Order
 
 import repositories.book_repository as book_repository
 import repositories.publisher_repository as publisher_repository
 import repositories.order_repository as order_repository
+import repositories.ordered_book_repository as ordered_book_repository
 
 book_repository.delete_all()
-publisher_repository.delete_all()
 order_repository.delete_all()
+publisher_repository.delete_all()
+ordered_book_repository.delete_all()
 
 publisher1 = Publisher("HarperCollins Publishers Ltd", "103 Westerhill Road, Bishopbriggs, Glasgow, G64 2QT.", "0141 306 3100")
 publisher_repository.save(publisher1)
@@ -46,6 +49,22 @@ order_repository.save(order1)
 
 order2 = Order("Customer 2 class placeholder", True)
 order_repository.save(order2)
+
+ordered_book1 = OrderedBook(order1, book1)
+ordered_book_repository.save(ordered_book1)
+
+ordered_book2 = OrderedBook(order1, book2)
+ordered_book_repository.save(ordered_book2)
+
+ordered_book3 = OrderedBook(order2, book6)
+ordered_book_repository.save(ordered_book3)
+
+ordered_book4 = OrderedBook(order2, book5)
+ordered_book_repository.save(ordered_book4)
+
+ordered_book5 = OrderedBook(order2, book4)
+ordered_book_repository.save(ordered_book5)
+
 
 
 pdb.set_trace()

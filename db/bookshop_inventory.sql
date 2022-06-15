@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS ordered_books;
-DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS books;
 DROP TABLE IF EXISTS publishers;
 
 CREATE TABLE publishers(
@@ -33,7 +33,8 @@ CREATE TABLE orders(
 
 CREATE TABLE ordered_books(
   id SERIAL PRIMARY KEY,
-  order_id SERIAL REFERENCES orders(id),
-  book_id SERIAL REFERENCES books(id)
+  order_id SERIAL REFERENCES orders(id) ON DELETE CASCADE,
+  book_id SERIAL REFERENCES books(id) ON DELETE CASCADE
 
 );
+
