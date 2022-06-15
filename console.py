@@ -65,6 +65,4 @@ ordered_book_repository.save(ordered_book4)
 ordered_book5 = OrderedBook(order2, book4)
 ordered_book_repository.save(ordered_book5)
 
-
-
 pdb.set_trace()

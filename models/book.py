@@ -25,5 +25,3 @@ class Book:
     elif self.quantity < 5:
       return "stock_low"
   
-  # def change_quantity(): should this be handled by the db?
-  #   pass

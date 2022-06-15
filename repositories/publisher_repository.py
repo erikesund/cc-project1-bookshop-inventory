@@ -40,7 +40,7 @@ def delete(id):
   values = [id]
   run_sql(sql, values)
 
-def books_by_publisher(id): # need to add for list of books by publisher
+def books_by_publisher(id):
   books = []
   sql = "SELECT books.* FROM books WHERE publisher_id = %s"
   values = [id]

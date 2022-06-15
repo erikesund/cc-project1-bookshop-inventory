@@ -30,5 +30,3 @@ class TestBook(unittest.TestCase):
     self.book.stock_status()
     self.assertEqual("out_of_stock", self.book.stock_status())
 
-  # def test_change_guantity(self): handled by db?
-    # pass

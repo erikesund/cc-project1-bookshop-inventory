@@ -19,8 +19,8 @@ def show_book(id):
   publisher = publisher_repository.select(book.publisher.id)
   return render_template("/books/show.html", book = book, publisher = publisher)
 
-#new
-@books_blueprint.route("/books/new")
+
+@books_blueprint.route("/books/new") #new
 def new_book():
   publishers = publisher_repository.select_all()
   books = book_repository.select_all()
@@ -58,7 +58,7 @@ def update_book(id):
   buy_price = request.form["buy_price"]
   sell_price = request.form["sell_price"]
   publisher_id = request.form["publisher_id"]
-  publisher = publisher_repository.select(publisher_id) #this line is not right?
+  publisher = publisher_repository.select(publisher_id)
   isbn = request.form["isbn"]
   book_format = request.form["book_format"]
   book = Book(title, author, genre, quantity, buy_price, sell_price, publisher, isbn, book_format, id)

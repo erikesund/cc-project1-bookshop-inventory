@@ -4,26 +4,6 @@
 
 <div><a href="/books/new">Add New Book</a></div>
 
-<!-- <div id="book-container">
-  {% for book in books %}
-  <p>
-    <a href="/books/{{book.id}}">{{book.title}}</a> - {{book.author}} <a href="/books/{{book.id}}/edit">Edit</a><br> Genre: {{book.genre}} <br> 
-    Quantity: {{book.quantity}} <br>Buy Price: {{book.buy_price}} <br>Sell Price: {{book.sell_price}} <br>
-    Markup: {{ book.calculate_markup() }} <br>
-    Publisher: {{book.publisher.name}} <br> ISBN: {{book.isbn}} <br> Format: {{book.book_format}} <br>
-    {{book.id}} <br>
-    
-    {% if book.stock_status() == 'out_of_stock' %}
-    Out of Stock!
-    {% elif book.stock_status() == 'stock_high' %}
-    Stock Fine
-    {% else %}
-    Stock Low!
-    {% endif %}
-  </p>
-  
-  {% endfor %}
-</div> -->
 <aside>
 Search: <input type="text" id="search_input" onkeyup="" placeholder="Search">
 </aside>
