@@ -44,10 +44,10 @@ book_repository.save(book5)
 book6 = Book("Thud!", "Terry Pratchett", "fantasy", 3, 4.40, 8.99, publisher4, "9780552167697", "paperback")
 book_repository.save(book6)
 
-order1 = Order("Customer 1 class placeholder", True)
+order1 = Order("Jon Ronson, 132 Viaduct Road, Cardiff, CF43 1DX.", True)
 order_repository.save(order1)
 
-order2 = Order("Customer 2 class placeholder", True)
+order2 = Order("Louis Theroux, 2 Castle Way, London, SW13 4DX.", True)
 order_repository.save(order2)
 
 ordered_book1 = OrderedBook(order1, book1)

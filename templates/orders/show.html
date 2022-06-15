@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <article class = "book-container">
-    Order #: {{order.id}}
-    Customer Details: {{order.customer}}
-    Status: {{order.status}}
-    {% for book in ordered_books %}
-        {{book.name}}      
-    {% endfor %}
+  <article class = "container">
+    Order #: {{order.id}} <hr>
+    Customer Details: {{order.customer}} <hr>
+    Order Status: 
+    {% if order.status == True %}
+      Open
+    {% else %}
+      Closed
+  {% endif %}  <hr> 
+  
+  {% for book in ordered_books %}
+      {{book.title}} - {{book.author}} <br>
+      {{book.isbn}} <hr>
+  {% endfor %}
   </article>
 {% endblock content %}

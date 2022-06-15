@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="publisher-container">
+  <div class="container">
     <p>{{publisher.name}}<br>
     {{publisher.address}} <br>
     {{publisher.phone_number}} <br>
     <a href="/publishers/{{publisher.id}}/edit">Edit</a>
-  </div>
+    </div>
 
   <div class="books-table">
     <table>
@@ -19,7 +19,6 @@
         <th>Buy Price</th>
         <th>Sell Price</th>
         <th>Markup</th> 
-        <th>Publisher</th>
         <th>ISBN</th>
         <th>Format</th>
         <th></th>
@@ -40,12 +39,12 @@
         <td>{{book.buy_price}}</td>
         <td>{{book.sell_price}}</td>
         <td>{{book.calculate_markup()}}</td>
-        <td>{{book.publisher.name}}</td>
         <td>{{book.isbn}}</td>
         <td>{{book.book_format}}</td>
         <td><a href="/books/{{book.id}}/edit">Edit</a></td>
       </tr>
       {% endfor %}
     </table>
+  </div>
 
 {% endblock content %}

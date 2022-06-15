@@ -4,12 +4,21 @@
   
 <div>
   {% for order in orders %}
-  <p class="publisher-container">
-  <a href="/orders/{{order.id}}">{{order.id}}</a> <br>
-  {{order.status}} <br>
+  <p class="container">
+    <span> Order #: <a href="/orders/{{order.id}}">{{order.id}}</a></span> <br> 
+    <a href="/orders/{{order.id}}">Order Details</a> <br> 
+    {% if order.status == True %}
+    {% endif %}
+    Status: 
+    {% if order.status == True %}
+      Open
+    {% else %}
+      Closed
+    {% endif %}    
+    <br>
   {{order.customer}}
 </p>
-{% endfor %}
+  {% endfor %}
 </div>
-
+  
 {% endblock content %}
