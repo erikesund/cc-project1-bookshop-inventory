@@ -15,7 +15,7 @@ def save(book):
 
 def select_all():
   books = []
-  sql = "SELECT * FROM books"
+  sql = "SELECT * FROM books ORDER BY author, title"
   results = run_sql(sql)
   for row in results:
     publisher = publisher_repository.select(row["publisher_id"])

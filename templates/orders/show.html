@@ -13,6 +13,7 @@
   
   {% for book in ordered_books %}
       {{book.title}} - {{book.author}} <br>
+      {{book.book_format}} <br>
       {{book.isbn}} <hr>
   {% endfor %}
   </article>

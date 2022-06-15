@@ -47,6 +47,7 @@ header {
   top: 150px;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 main {
@@ -81,6 +82,7 @@ article {
   margin: 5px;
   background-color: rgb(231, 233, 235);
   padding: 2rem;
+  padding-top: 1rem;
   border-radius: 25px;
   max-width: 100%;
   display: flex;
@@ -111,4 +113,10 @@ td:nth-child(even) {
 }
 td:nth-child(odd) {
   background-color: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
