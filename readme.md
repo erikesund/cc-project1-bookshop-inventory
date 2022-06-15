@@ -1,4 +1,4 @@
-### Bookshop Inventory Project
+# Bookshop Inventory Project
 ## How to Run
 
 Download the zip file from github and install in a location of your choice.
